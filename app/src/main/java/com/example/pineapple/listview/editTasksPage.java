@@ -32,15 +32,16 @@ import android.widget.EditText;
 
 public class editTasksPage extends AppCompatActivity{
 
-    public EditText purpose;
-
     private SharedPreferences shared;
     private SharedPreferences.Editor editor;
+
+    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 
     @Override
     protected  void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_tasks_edit);
+
 
         shared = PreferenceManager.getDefaultSharedPreferences(this);
         editor = shared.edit();
@@ -76,18 +77,22 @@ public class editTasksPage extends AppCompatActivity{
         EditText assignmentDetails = (EditText) findViewById(R.id.AssignmentDetailsInput);
         String assignmentDetailsToString = assignmentDetails.getText().toString();
 
-        if(subject.getText().toString().equals(null)||dueDateToString.equals(null)
-                ||assignmentDetailsToString.equals(null)){
+        if(subject.getText().toString().equals("")||dueDateToString.equals("")
+                ||assignmentDetailsToString.equals("")){
             Toast.makeText(editTasksPage.this, "Ensure that all fields are filled", Toast.LENGTH_LONG).show();
         }else {
             String allElements = subject.getText().toString() + ";" +
-                    dueDateToString + ";" + assignmentDetailsToString;
+                    dueDateToString + ";" + assignmentDetailsToString + ";";
 
-            editor.putString(purpose.getText().toString(), allElements);
+            editor.putString(subject.getText().toString(), allElements);
             editor.commit();
 
+         /*   Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra(EXTRA_MESSAGE, allElements);
+            startActivity(intent);
+*/
 
-            String retreived = shared.getString(purpose.getText().toString(), "default");
+            String retreived = shared.getString(subject.getText().toString(), "default");
 
             startActivity(new Intent(this, MainActivity.class));
         }

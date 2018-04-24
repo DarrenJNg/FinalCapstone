@@ -42,30 +42,43 @@ public class MainActivity extends AppCompatActivity {
 
        // String[] tasks = {"Homework", "Homework2","No", "Yes", "Why isn't this working?"};
 
+        /*
+        Intent intent = getIntent();
+        String message = intent.getStringExtra(editTasksPage.EXTRA_MESSAGE);
+        */
+
+        //editTasks.add(message);
+
         shared = PreferenceManager.getDefaultSharedPreferences(this);
         editor = shared.edit();
 
-        Map<String, ?> records = shared.getAll();
-        for(Map.Entry entry : records.entrySet()) {
 
-            String[] record = entry.getValue().toString().split(";");
+        Map<String, ?> allElements = shared.getAll();
+        for(Map.Entry entry : allElements.entrySet()) {
 
-            /* validate .. make sure records has all the field  */
-            if (record.length <3) {
+            String[] element = entry.getValue().toString().split(";");
+
+
+
+            if (element.length <3) {
                 continue;
             }
-            subject = record[0];
-            dueDate = record[1];
-            details = record[2];
+            subject = element[0];
+            dueDate = element[1];
+            details = element[2];
         }
 
         editTasks.add(subject);
         editTasks.add(dueDate);
         editTasks.add(details);
-        String[] tasks = new String[editTasks.size()];
+       // String[] tasks = new String[editTasks.size()];
+
+        /*
         for(int x=0; x<editTasks.size(); x++){
             tasks[x] = editTasks.get(x);
         }
+*/
+
 
         //needs an adapter to transfer String[] to ListView
         ListAdapter adapter = new CustomAdapter(this, editTasks);
