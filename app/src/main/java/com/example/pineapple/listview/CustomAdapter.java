@@ -16,6 +16,7 @@ import java.util.ArrayList;
 class CustomAdapter extends ArrayAdapter<String> {
 
     ArrayList<String> assignments = new ArrayList<>();
+    private int count = 0;
 
 
     //changed from String array[] to ArrayList
@@ -34,7 +35,7 @@ class CustomAdapter extends ArrayAdapter<String> {
             View customView = inflater.inflate(R.layout.custom_row, parent, false);
 
             if (position != 0) {
-                position = position + 2;
+                position = position + count;
             }
 
         if(position+2<assignments.size()) {
@@ -53,6 +54,7 @@ class CustomAdapter extends ArrayAdapter<String> {
             details.setText(detailsToString);
             image.setImageResource(R.mipmap.computer_icon);
         }
+        count+=2;
 
 
             return customView;
