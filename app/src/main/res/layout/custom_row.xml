@@ -11,11 +11,35 @@
         android:layout_weight="1"
         app:srcCompat="@mipmap/computer_icon" />
 
-    <TextView
-        android:id="@+id/TextView"
-        android:layout_width="100dp"
-        android:layout_height="95dp"
+    <LinearLayout
+        android:layout_width="202dp"
+        android:layout_height="96dp"
         android:layout_weight="1"
-        android:text="TextView"
-        android:textSize="24sp" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/Subject"
+            android:layout_width="match_parent"
+            android:layout_height="29dp"
+            android:text="TextView"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/DueDate"
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:text="TextView"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/Details"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="TextView"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+    </LinearLayout>
+
 </LinearLayout>

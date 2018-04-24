@@ -9,23 +9,37 @@
     <ListView
         android:id="@+id/ListyViewy"
         android:layout_width="match_parent"
-        android:layout_height="514dp"
+        android:layout_height="389dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/NewTask"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"></ListView>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ListView>
 
     <Button
         android:id="@+id/NewTask"
         android:layout_width="350dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
         android:onClick="editTasksList"
         android:text="Add Task"
+        app:layout_constraintBottom_toTopOf="@+id/ClearAllButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/ClearAllButton"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="clearTasks"
+        android:text="Clear All"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -52,25 +52,24 @@ public class MainActivity extends AppCompatActivity {
         shared = PreferenceManager.getDefaultSharedPreferences(this);
         editor = shared.edit();
 
-
         Map<String, ?> allElements = shared.getAll();
         for(Map.Entry entry : allElements.entrySet()) {
 
             String[] element = entry.getValue().toString().split(";");
 
 
-
-            if (element.length <3) {
+            if (element.length < 3) {
                 continue;
             }
             subject = element[0];
             dueDate = element[1];
             details = element[2];
-        }
 
-        editTasks.add(subject);
-        editTasks.add(dueDate);
-        editTasks.add(details);
+
+            editTasks.add(subject);
+            editTasks.add(dueDate);
+            editTasks.add(details);
+        }
        // String[] tasks = new String[editTasks.size()];
 
         /*
@@ -105,5 +104,10 @@ public class MainActivity extends AppCompatActivity {
     public void editTasksList(View view) {
         Intent intent = new Intent(this, editTasksPage.class);
         startActivity(intent);
+    }
+    public void clearTasks(View view){
+        editTasks.clear();
+        editor.clear();
+        editor.commit();
     }
 }
