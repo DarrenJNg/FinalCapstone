@@ -11,6 +11,16 @@ import android.widget.ListView;
 import android.widget.Toast;
 import java.util.ArrayList;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.app.NotificationCompat;
+import android.view.View;
+import android.widget.EditText;
+
 public class MainActivity extends AppCompatActivity {
 
     private  ArrayList<String> editTasks = new ArrayList<>();
@@ -25,13 +35,19 @@ public class MainActivity extends AppCompatActivity {
         editTasks.add("Pineapple");
         editTasks.add("Bigger Pineapple");
         editTasks.add("Biggest Pineapple");
+        editTasks.add("Biggest Pineapple");
+        editTasks.add("Biggest Pineapple");
+        editTasks.add("Biggest Pineapple");
+        editTasks.add("Biggest Pineapple");
+        editTasks.add("Biggest Pineapple");
+        editTasks.add("Biggest Pineapple");
         String[] tasks = new String[editTasks.size()];
         for(int x=0; x<editTasks.size(); x++){
             tasks[x] = editTasks.get(x);
         }
 
         //needs an adapter to transfer String[] to ListView
-        ListAdapter adapter = new CustomAdapter(this, tasks);
+        ListAdapter adapter = new CustomAdapter(this, editTasks);
         //initializes the ListView
         ListView ListyViewy = (ListView) findViewById(R.id.ListyViewy);
         //sets the adapter
@@ -50,5 +66,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+    public void editTasksList(View view) {
+        Intent intent = new Intent(this, editTasksPage.class);
+        startActivity(intent);
     }
 }

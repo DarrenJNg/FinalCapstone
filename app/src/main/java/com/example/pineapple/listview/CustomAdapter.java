@@ -11,10 +11,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import java.util.ArrayList;
 
 class CustomAdapter extends ArrayAdapter<String> {
 
-    CustomAdapter(Context context, String[] assignments) {
+    //changed from String array[] to ArrayList
+    CustomAdapter(Context context, ArrayList<String> assignments) {
         super(context, R.layout.custom_row, assignments);
     }
 
