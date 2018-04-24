@@ -41,6 +41,9 @@ public class editTasksPage extends AppCompatActivity{
     protected  void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_tasks_edit);
+
+        shared = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = shared.edit();
     }
     public void mathCLicked(View view){
         TextView textView = (TextView) findViewById(R.id.SubjectSelectedView);
