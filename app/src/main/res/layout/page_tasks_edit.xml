@@ -52,6 +52,7 @@
         android:id="@+id/MathButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="mathCLicked"
         android:text="Math"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -62,6 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:onClick="scienceClicked"
         android:text="Science"
         app:layout_constraintEnd_toStartOf="@+id/HistoryButton"
         app:layout_constraintStart_toEndOf="@+id/MathButton"
@@ -71,6 +73,7 @@
         android:id="@+id/EnglishButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="englishClicked"
         android:text="English"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -80,6 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:onClick="historyClicked"
         android:text="History"
         app:layout_constraintEnd_toStartOf="@+id/EnglishButton"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -156,6 +160,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:onClick="submitTask"
         android:text="Add Assignment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -164,5 +169,20 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AssignmentDetailsInput" />
+
+    <Button
+        android:id="@+id/EnterCustomButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="enterCustomClass"
+        android:text="Enter"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/CustomClassInput"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
 </android.support.constraint.ConstraintLayout>

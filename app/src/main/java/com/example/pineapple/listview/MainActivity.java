@@ -1,5 +1,7 @@
 package com.example.pineapple.listview;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.app.Activity;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import java.util.ArrayList;
+import java.util.Map;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -23,6 +26,13 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
+    private SharedPreferences shared;
+    private SharedPreferences.Editor editor;
+
+    private String subject;
+    private String dueDate;
+    private String details;
+
     private  ArrayList<String> editTasks = new ArrayList<>();
 
     @Override
@@ -32,15 +42,26 @@ public class MainActivity extends AppCompatActivity {
 
        // String[] tasks = {"Homework", "Homework2","No", "Yes", "Why isn't this working?"};
 
-        editTasks.add("Pineapple");
-        editTasks.add("Bigger Pineapple");
-        editTasks.add("Biggest Pineapple");
-        editTasks.add("Biggest Pineapple");
-        editTasks.add("Biggest Pineapple");
-        editTasks.add("Biggest Pineapple");
-        editTasks.add("Biggest Pineapple");
-        editTasks.add("Biggest Pineapple");
-        editTasks.add("Biggest Pineapple");
+        shared = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = shared.edit();
+
+        Map<String, ?> records = shared.getAll();
+        for(Map.Entry entry : records.entrySet()) {
+
+            String[] record = entry.getValue().toString().split(";");
+
+            /* validate .. make sure records has all the field  */
+            if (record.length <3) {
+                continue;
+            }
+            subject = record[0];
+            dueDate = record[1];
+            details = record[2];
+        }
+
+        editTasks.add(subject);
+        editTasks.add(dueDate);
+        editTasks.add(details);
         String[] tasks = new String[editTasks.size()];
         for(int x=0; x<editTasks.size(); x++){
             tasks[x] = editTasks.get(x);
